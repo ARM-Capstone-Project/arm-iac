@@ -1,4 +1,4 @@
-# infrastructure as code
+# ARM IAC
 
 ### Overview
 
@@ -46,7 +46,7 @@ brew install trivy
 
 Create ECR and EKS cluster using Terraform
 
-![terraform](screenshots/terraform.png)
+![terraform](https://raw.githubusercontent.com/ARM-Capstone-Project/arm-iac/main/screenshots/terraform.png)
 
 ```
 terraform fmt -recursive
@@ -68,9 +68,9 @@ terraform destroy
 
 http://ec2-47-128-153-178.ap-southeast-1.compute.amazonaws.com:8080/
 
-![jenkins-server](screenshots/jenkins-server.png)
+![jenkins-server](https://raw.githubusercontent.com/ARM-Capstone-Project/arm-iac/main/screenshots/jenkins-server.png)
 
-![ec2-contents](screenshots/ec2-contents.png)
+![ec2-contents](https://raw.githubusercontent.com/ARM-Capstone-Project/arm-iac/main/screenshots/ec2-contents.png)
 
 Get Jenkins admin password through SSM
 
@@ -82,7 +82,7 @@ systemctl status jenkins.service
 
 Allow Jenkins to run terraform actions
 
-![terraform-in-jenkins](screenshots/terraform-in-jenkins.png)
+![terraform-in-jenkins](https://raw.githubusercontent.com/ARM-Capstone-Project/arm-iac/main/screenshots/terraform-in-jenkins.png)
 
 ---
 
@@ -100,7 +100,7 @@ Launch: Development
 podman run -p 5173:80 <image-id>
 ```
 
-![podman-containerization](screenshots/podman-containerization.png)
+![podman-containerization](https://raw.githubusercontent.com/ARM-Capstone-Project/arm-iac/main/screenshots/podman-containerization.png)
 
 Launch: Manual test and push image to ECR
 
@@ -114,7 +114,7 @@ podman tag arm-fe:v1 <ecr-repo-url>:v1
 podman push <ecr-repo-url>:v1
 ```
 
-![ecr](screenshots/ecr.png)
+![ecr](https://raw.githubusercontent.com/ARM-Capstone-Project/arm-iac/main/screenshots/ecr.png)
 
 ---
 
@@ -128,7 +128,7 @@ aws eks update-kubeconfig --region <aws-region> --name <cluster-name>
 kubectl cluster-info
 ```
 
-![kubectl-cluster-info](screenshots/kubectl-cluster-info.png)
+![kubectl-cluster-info](https://raw.githubusercontent.com/ARM-Capstone-Project/arm-iac/main/screenshots/kubectl-cluster-info.png)
 
 Launch: Manual deployment using Kubenetes Manifests
 
@@ -152,7 +152,7 @@ Add Host name
 sudo vim /etc/hosts
 ```
 
-![host-name](screenshots/host-name.png)
+![host-name](https://raw.githubusercontent.com/ARM-Capstone-Project/arm-iac/main/screenshots/host-name.png)
 
 ---
 
@@ -190,13 +190,13 @@ Dashboard will be available at: https://localhost:8443
 kubectl create token eks-admin -n kube-system
 ```
 
-![k8-dashboard](screenshots/k8-dashboard.png)
+![k8-dashboard](https://raw.githubusercontent.com/ARM-Capstone-Project/arm-iac/main/screenshots/k8-dashboard.png)
 
 ---
 
 ### Helm
 
-![helm](screenshots/helm.png)
+![helm](https://raw.githubusercontent.com/ARM-Capstone-Project/arm-iac/main/screenshots/helm.png)
 
 Setup: Copy k8s/manifests
 
@@ -223,11 +223,11 @@ trivy config helm/arm-fe-chart/
 # Failures: 14 (UNKNOWN: 0, LOW: 9, MEDIUM: 3, HIGH: 2, CRITICAL: 0)
 ```
 
-![trivy-scan](screenshots/trivy-scan.png)
+![trivy-scan](https://raw.githubusercontent.com/ARM-Capstone-Project/arm-iac/main/screenshots/trivy-scan.png)
 
 Security fixes
 
-![trivy-scan-port-80](screenshots/trivy-scan-port-80.png)
+![trivy-scan-port-80](https://raw.githubusercontent.com/ARM-Capstone-Project/arm-iac/main/screenshots/trivy-scan-port-80.png)
 
 ---
 
@@ -247,7 +247,7 @@ kubectl get pods -n argocd
 kubectl get svc argocd-server -n argocd
 ```
 
-![kubectl-argocd](screenshots/kubectl-argocd.png)
+![kubectl-argocd](https://raw.githubusercontent.com/ARM-Capstone-Project/arm-iac/main/screenshots/kubectl-argocd.png)
 
 Expose services to the LoadBalancer
 
@@ -265,9 +265,9 @@ To get the secret admin password
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
 ```
 
-![argocd-setup](screenshots/argocd-setup.png)
+![argocd-setup](https://raw.githubusercontent.com/ARM-Capstone-Project/arm-iac/main/screenshots/argocd-setup.png)
 
-![argocd-app](screenshots/argocd-app.png)
+![argocd-app](https://raw.githubusercontent.com/ARM-Capstone-Project/arm-iac/main/screenshots/argocd-app.png)
 
 ---
 
@@ -294,7 +294,7 @@ helm install grafana grafana/grafana
 helm repo list
 ```
 
-![helm-repo-list](screenshots/helm-repo-list.png)
+![helm-repo-list](https://raw.githubusercontent.com/ARM-Capstone-Project/arm-iac/main/screenshots/helm-repo-list.png)
 
 Expose services to the LoadBalancer
 
